@@ -1,0 +1,76 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "com.now.nowtools"
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+//    sourceSets {
+//        main {
+//            jniLibs.srcDirs = ['libs']
+//        }
+//    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.3.0'
+    compile 'com.android.support:recyclerview-v7:25.3.0'
+    compile 'com.android.support:support-v4:25.3.0'
+
+    testCompile 'junit:junit:4.12'
+
+    compile 'com.squareup.okhttp3:okhttp:3.6.0'
+
+    //文字识别
+    compile files('libs/ocr-sdk.jar')
+    //文字识别ui
+    compile project(path: ':ocr_ui')
+   //底部导航栏
+    compile 'com.ashokvarma.android:bottom-navigation-bar:1.2.0'
+
+    //引入百度语音合成
+    compile files('libs/com.baidu.tts_2.3.0.jar')
+    //引入百度语音识别
+    compile files('libs/VoiceRecognition-2.1.20.jar')
+    //友盟
+    compile 'com.umeng.analytics:analytics:latest.integration'
+    compile files('libs/utdid4all-1.0.4.jar')
+
+   //注解
+    compile 'com.jakewharton:butterknife:5.1.1'
+
+    //腾讯广告
+    compile files('libs/android-query-full.0.26.7.jar')
+    compile files('libs/GDTUnionSDK.TBS.4.9.544.min.jar')
+
+     //MD-ui
+    // ui module
+    compile 'net.qiujuer.genius:ui:2.0.0'
+    compile 'net.qiujuer.genius:res:2.0.0'
+
+    // use to bitmap blur and more
+    compile 'net.qiujuer.genius:graphics:2.0.0'
+
+    // ping/telnet/tracert/dns and run cmd
+    compile 'net.qiujuer.genius:kit-cmd:2.0.0'
+    // shuttle between ui-thread and child-thread
+    compile 'net.qiujuer.genius:kit-handler:2.0.0'
+    // calss reflect
+    compile 'net.qiujuer.genius:kit-reflect:2.0.0'
+}
